@@ -1,6 +1,7 @@
 {
-  "ver": "1.2.4",
+  "ver": "1.2.6",
   "uuid": "9917343c-0dbb-427b-929c-0e01f0eb67fa",
+  "importer": "sprite-atlas",
   "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
   "size": {
     "width": 1412,
@@ -9,8 +10,9 @@
   "type": "Texture Packer",
   "subMetas": {
     "1.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "feb2bd2f-f3c4-4991-8701-c4a96a7ed339",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -31,8 +33,9 @@
       "subMetas": {}
     },
     "10.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "925edbf3-fc5f-42a4-bf17-8b140d885c82",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -53,8 +56,9 @@
       "subMetas": {}
     },
     "11.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "249673eb-30f2-4a40-b342-afcedea42224",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -75,8 +79,9 @@
       "subMetas": {}
     },
     "12.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "83e0b1b2-c9c7-4434-be39-c3c120d29861",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -97,8 +102,9 @@
       "subMetas": {}
     },
     "13.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "506d0a6a-2d1a-4c5b-b3ff-7d2622aeb238",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -119,8 +125,9 @@
       "subMetas": {}
     },
     "2.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "4999c87e-8ac6-43f9-9152-e50856f37d03",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -141,8 +148,9 @@
       "subMetas": {}
     },
     "3.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "279a3cf0-1350-432f-a3be-2ec5e838e7ff",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -163,8 +171,9 @@
       "subMetas": {}
     },
     "4.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "8e0a2f06-b6c6-4977-9b8c-6888a708a420",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -185,8 +194,9 @@
       "subMetas": {}
     },
     "5.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "611c04ba-3cef-459a-8a8c-b5553c9b1202",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -207,8 +217,9 @@
       "subMetas": {}
     },
     "6.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "c96c8d62-ca54-464e-8984-8b56cb3d4ed7",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -229,8 +240,9 @@
       "subMetas": {}
     },
     "7.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "6ac57208-74ad-4705-80b3-2ad8573fdf77",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -251,8 +263,9 @@
       "subMetas": {}
     },
     "8.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "0d7be1b3-01d4-428f-a32f-99e1b63f7e2b",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -273,8 +286,9 @@
       "subMetas": {}
     },
     "9.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "54b762cf-226a-40de-ad15-236aa5ae1552",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -295,8 +309,9 @@
       "subMetas": {}
     },
     "a玩家出牌_.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "13ffcafb-06dd-4690-8880-b06bc00d5b61",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -317,8 +332,9 @@
       "subMetas": {}
     },
     "coins0.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "2084e8f3-91c9-42a4-aed1-5174fbd80b5a",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -339,8 +355,9 @@
       "subMetas": {}
     },
     "coins1.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "145ee044-28ce-4560-a024-ded372b1a4c8",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -361,8 +378,9 @@
       "subMetas": {}
     },
     "coins2.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "826745ff-4852-4b67-9748-2eea65c25f63",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -383,8 +401,9 @@
       "subMetas": {}
     },
     "coins3.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "90790777-4d56-47e2-88ec-36fbc9f30210",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -405,8 +424,9 @@
       "subMetas": {}
     },
     "coins4.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "7de87218-b049-49b0-8e24-fc8c9980db61",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -427,8 +447,9 @@
       "subMetas": {}
     },
     "coins5.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "832d8f8a-302d-4227-bc7d-f264fbe532ea",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -449,8 +470,9 @@
       "subMetas": {}
     },
     "coins6.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "c8b5afcb-f5c5-419d-b06d-2c1e68da1676",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -471,8 +493,9 @@
       "subMetas": {}
     },
     "coins7.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "55270bff-82fc-4286-b505-84c6b5b9c983",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -493,8 +516,9 @@
       "subMetas": {}
     },
     "coins8.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "48822329-44c5-428a-b872-e136c367c7c2",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -515,8 +539,9 @@
       "subMetas": {}
     },
     "coins9.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "47a03afb-194d-4dd1-abae-61a8d87ac2f8",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -537,8 +562,9 @@
       "subMetas": {}
     },
     "coins_dian.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "e854f035-6581-4d7f-ae54-a3876765977c",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -559,8 +585,9 @@
       "subMetas": {}
     },
     "coins_qian.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "4dcc63ab-9379-44b2-9fbc-d6f4f6415275",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -581,8 +608,9 @@
       "subMetas": {}
     },
     "coins_wan.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "f28facd6-cb63-46bb-87e7-f487a38b522b",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -603,8 +631,9 @@
       "subMetas": {}
     },
     "coins_zhang.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "debde84d-a61c-47ba-bc44-99a969413190",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -625,8 +654,9 @@
       "subMetas": {}
     },
     "icon_托管.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "f563db41-27fe-4c9d-bbcc-7d90d653bde8",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -647,8 +677,9 @@
       "subMetas": {}
     },
     "icon_设置.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "0f7accd0-8494-41a9-a004-b34dc81debae",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -669,8 +700,9 @@
       "subMetas": {}
     },
     "icon_返回.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "67937cb7-adb6-4acf-a2ce-98ea492cd455",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -691,8 +723,9 @@
       "subMetas": {}
     },
     "jsq.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "aa97d049-2469-4742-a939-83d0f6187b9f",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -713,8 +746,9 @@
       "subMetas": {}
     },
     "jsq0.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "71d6c860-dffe-4cee-b215-75ac714d3036",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -735,8 +769,9 @@
       "subMetas": {}
     },
     "jsq1.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "a6fc4d2b-0833-4b70-b94e-5ac544b2be3e",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -757,8 +792,9 @@
       "subMetas": {}
     },
     "jsq2.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "b9a4707c-18bd-437a-8e41-a0d2134feb3d",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -779,8 +815,9 @@
       "subMetas": {}
     },
     "jsq3.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "985e30c5-d4ed-422a-af35-985a7a1e9a34",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -801,8 +838,9 @@
       "subMetas": {}
     },
     "jsq4.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "4769361d-578a-4041-8412-21ee69807b1e",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -823,8 +861,9 @@
       "subMetas": {}
     },
     "jsq5.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "0acf0712-9f13-4a10-a0d5-912bfb2e65d8",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -845,8 +884,9 @@
       "subMetas": {}
     },
     "jsq6.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "514287dd-83d9-4e7f-870b-2542dde53858",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -867,8 +907,9 @@
       "subMetas": {}
     },
     "jsq7.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "4f7ac1fb-e989-454f-8c5e-94d271205478",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -889,8 +930,9 @@
       "subMetas": {}
     },
     "jsq8.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "456568d5-6627-4eb3-a153-9f6d3808d009",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -911,8 +953,9 @@
       "subMetas": {}
     },
     "jsq9.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "7b3da3f0-41ff-49ba-8fdb-6ea4e3f01e63",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -933,8 +976,9 @@
       "subMetas": {}
     },
     "r1.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "4c66e485-31ab-4790-a206-21e819c918e0",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -955,8 +999,9 @@
       "subMetas": {}
     },
     "r10.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "74c6535d-73b2-4dd1-a3ee-dcd469daebca",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -977,8 +1022,9 @@
       "subMetas": {}
     },
     "r11.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "f057c098-d1e9-480f-b5aa-2870262b711d",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -999,8 +1045,9 @@
       "subMetas": {}
     },
     "r12.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "4529b288-6cda-4663-b8fb-f54d34cae341",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1021,8 +1068,9 @@
       "subMetas": {}
     },
     "r13.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "a255823c-d22b-4bf6-a045-df039750dc24",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1043,8 +1091,9 @@
       "subMetas": {}
     },
     "r2.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "cea0ec18-366b-4fbf-8182-1c3a3303825c",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1065,8 +1114,9 @@
       "subMetas": {}
     },
     "r3.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "f3a7df29-a843-46dd-ac3a-f97b86f0051a",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1087,8 +1137,9 @@
       "subMetas": {}
     },
     "r4.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "2b7dc308-5fb2-4328-b456-3d26d7010c93",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1109,8 +1160,9 @@
       "subMetas": {}
     },
     "r5.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "8f2bcf15-eb90-4efd-9b2e-910681f0d11e",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1131,8 +1183,9 @@
       "subMetas": {}
     },
     "r6.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "3d3429a9-13a6-4e32-a241-5c884280e77f",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1153,8 +1206,9 @@
       "subMetas": {}
     },
     "r7.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "0c2084cb-64f3-4edb-a36e-dcf655b0d581",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1175,8 +1229,9 @@
       "subMetas": {}
     },
     "r8.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "992a82c9-816d-496b-a35d-8fe11bc34b93",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1197,8 +1252,9 @@
       "subMetas": {}
     },
     "r9.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "2a596491-fa52-481b-ae0a-680a757634ac",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1219,8 +1275,9 @@
       "subMetas": {}
     },
     "侧家出牌.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "2e66b60e-6af7-4cb1-985d-79e1f3d20f95",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1241,8 +1298,9 @@
       "subMetas": {}
     },
     "侧家手牌.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "e07953b2-d5ef-464d-a3ee-464fe3d7ef8a",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1263,8 +1321,9 @@
       "subMetas": {}
     },
     "侧家杠牌.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "e68bdfc2-a80a-47f6-a736-cf1b396af612",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1285,8 +1344,9 @@
       "subMetas": {}
     },
     "地主标志.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "0a86f6d6-bfeb-4d64-9a23-f757ce1ba212",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1307,8 +1367,9 @@
       "subMetas": {}
     },
     "大王_中.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "3ae36cb5-5da9-4d94-8446-2839a0b9f984",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1329,8 +1390,9 @@
       "subMetas": {}
     },
     "大王_大.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "203efca2-e701-49e8-841a-b7309ecafeee",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1351,8 +1413,9 @@
       "subMetas": {}
     },
     "大王_小.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "a31b75f3-51e9-467f-9083-13981686ebae",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1373,8 +1436,9 @@
       "subMetas": {}
     },
     "头像框底.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "38c55b99-f469-451a-b248-d95cb333d66f",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1395,8 +1459,9 @@
       "subMetas": {}
     },
     "对家手牌.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "7ca26421-3f38-422d-b620-1a2653b0ec26",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1417,8 +1482,9 @@
       "subMetas": {}
     },
     "对家杠牌.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "1a5a0e7d-82e1-4aa4-9b22-542a48b57a94",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1439,8 +1505,9 @@
       "subMetas": {}
     },
     "小王_中.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "4674189e-599b-403b-9593-2e95655f8b40",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1461,8 +1528,9 @@
       "subMetas": {}
     },
     "小王_大.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "f449c7ec-3823-4b75-865a-8061d5a7fbe7",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1483,8 +1551,9 @@
       "subMetas": {}
     },
     "小王_小.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "db6aa0fb-df20-45ab-bcd8-6bb716728b84",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1505,8 +1574,9 @@
       "subMetas": {}
     },
     "底_中.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "f18c514b-5ccd-4e43-8bbf-d55293eb9478",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1527,8 +1597,9 @@
       "subMetas": {}
     },
     "底_大.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "c003be6d-f1a6-46da-a842-3de415fd0341",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1549,8 +1620,9 @@
       "subMetas": {}
     },
     "底_小.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "1bf54968-21b1-4368-b90c-a36cd861ea75",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1571,8 +1643,9 @@
       "subMetas": {}
     },
     "房卡底.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "bdcbe38e-3b82-406e-9d63-5c27536fa326",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1593,8 +1666,9 @@
       "subMetas": {}
     },
     "按钮+.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "14ecc9e1-a3d9-4539-8189-da6a35803fc3",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1615,8 +1689,9 @@
       "subMetas": {}
     },
     "按钮_不出.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "d2f16d58-cd5d-46b8-850f-95a9040ce1f5",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1637,8 +1712,9 @@
       "subMetas": {}
     },
     "按钮_不加倍.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "551424f5-b5a1-4487-a80d-965a11a1693f",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1659,8 +1735,9 @@
       "subMetas": {}
     },
     "按钮_不抢.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "113e44e9-9574-4b3e-9cfc-bfcaf36c66f9",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1681,8 +1758,9 @@
       "subMetas": {}
     },
     "按钮_出牌.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "56621087-b3e3-43d2-b9b6-18f033ef825e",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1703,8 +1781,9 @@
       "subMetas": {}
     },
     "按钮_加倍.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "36a18b9d-6a4c-4636-9b79-70e682ec9902",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1725,8 +1804,9 @@
       "subMetas": {}
     },
     "按钮_叫地主.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "90edc199-e815-44e2-95e4-e54644d0ff04",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1747,8 +1827,9 @@
       "subMetas": {}
     },
     "按钮_开始游戏.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "d74a5c58-b183-472d-8adc-149f89e58206",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1769,8 +1850,9 @@
       "subMetas": {}
     },
     "按钮_抢地主.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "ae1cc577-d1c3-4112-97a6-527cb4b57df9",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1791,8 +1873,9 @@
       "subMetas": {}
     },
     "按钮_提示.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "87a121cd-9b2f-4687-a9a1-35ec0ef7db58",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1813,8 +1896,9 @@
       "subMetas": {}
     },
     "按钮_明牌.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "16ec9e10-7764-421f-a2f2-39cc25c1da23",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1835,8 +1919,9 @@
       "subMetas": {}
     },
     "按钮_明牌开始.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "e60fed92-6424-46b3-8cce-047467e14dc4",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1857,8 +1942,9 @@
       "subMetas": {}
     },
     "按钮_橙色.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "22d2c3c5-9815-40bc-8af6-3be5b7c02c57",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1879,8 +1965,9 @@
       "subMetas": {}
     },
     "按钮_橙色_长.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "244a8076-8348-4e1b-8206-0790cef1f384",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1901,8 +1988,9 @@
       "subMetas": {}
     },
     "按钮_继续游戏.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "2bf6edd2-43be-4ef0-9420-fcc3b4040ac8",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1923,8 +2011,9 @@
       "subMetas": {}
     },
     "按钮_绿色.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "e7c5e420-cc22-4eb6-8bef-93a1061e34ae",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1945,8 +2034,9 @@
       "subMetas": {}
     },
     "按钮_绿色_长.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "cd12c9af-2d48-4bdb-8e1b-48454da1034b",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1967,8 +2057,9 @@
       "subMetas": {}
     },
     "按钮_要不起.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "5addc5fb-e46c-49c4-8d4e-0e008b4d7ce9",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -1989,8 +2080,9 @@
       "subMetas": {}
     },
     "提示_1.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "512e3b40-93fa-499c-bbf8-413165b0b796",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2011,8 +2103,9 @@
       "subMetas": {}
     },
     "提示_2.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "f5c2adc2-1c51-4e62-8bd7-0b6830aca6a9",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2033,8 +2126,9 @@
       "subMetas": {}
     },
     "提示_3.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "9bb7aafa-ac25-46b2-95fb-b657e1fb27a6",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2055,8 +2149,9 @@
       "subMetas": {}
     },
     "提示_不出.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "74288eb6-f1a2-4798-9ca1-6b38e6cc9970",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2077,8 +2172,9 @@
       "subMetas": {}
     },
     "提示_不加倍.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "a9df036d-d65d-4da8-bd88-3a9be5cb8e8c",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2099,8 +2195,9 @@
       "subMetas": {}
     },
     "提示_不抢.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "fb666eae-3c9c-4a5e-a9a4-4e0eb2be9532",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2121,8 +2218,9 @@
       "subMetas": {}
     },
     "提示_加倍.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "44cb8864-27e3-438d-b7ff-ae07d790569a",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2143,8 +2241,9 @@
       "subMetas": {}
     },
     "提示_叫地主.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "76df2f10-4cad-4590-8dce-cc2f01d89dc9",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2165,8 +2264,9 @@
       "subMetas": {}
     },
     "提示_抢地主.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "5ebfb062-1740-4c7c-b372-daf11fb3a470",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2187,8 +2287,9 @@
       "subMetas": {}
     },
     "方片.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "e5e99a87-180b-42ff-ab36-a2f8cbc700aa",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2209,8 +2310,9 @@
       "subMetas": {}
     },
     "桌子_对称.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "b4ae8e86-3e6e-4d9d-8a71-1e2ee68d8a43",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2231,8 +2333,9 @@
       "subMetas": {}
     },
     "梅花.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "dde77c6d-58df-48bd-9d4c-5fdcabb1bbdf",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2253,8 +2356,9 @@
       "subMetas": {}
     },
     "牌面-flower1.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "833ea455-c78b-4d44-95fe-872e06b11502",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2275,8 +2379,9 @@
       "subMetas": {}
     },
     "牌面-flower2.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "28cbf33d-503b-4aae-ab2b-0c640629ad6a",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2297,8 +2402,9 @@
       "subMetas": {}
     },
     "牌面-flower3.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "a1970f91-326c-494c-9c9e-7147490cc531",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2319,8 +2425,9 @@
       "subMetas": {}
     },
     "牌面-flower4.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "087f9116-1f9c-42fc-b6f9-9a08bd7236e0",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2341,8 +2448,9 @@
       "subMetas": {}
     },
     "牌面-season1.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "666198b6-8274-4ffd-a071-58c935d1ebe1",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2363,8 +2471,9 @@
       "subMetas": {}
     },
     "牌面-season2.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "2f44de12-0edb-434e-80ef-d28781ffbca0",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2385,8 +2494,9 @@
       "subMetas": {}
     },
     "牌面-season3.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "d60bfaad-01f6-488b-8263-c35ccbd8ab73",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2407,8 +2517,9 @@
       "subMetas": {}
     },
     "牌面-season4.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "bbd80e89-1aca-4a34-bae2-22312b5048df",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2429,8 +2540,9 @@
       "subMetas": {}
     },
     "牌面-suo1.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "e6980f1c-d293-4591-8cf4-ba2184c40586",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2451,8 +2563,9 @@
       "subMetas": {}
     },
     "牌面-suo2.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "b92accbf-3567-4cf2-981d-2377e1031b3d",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2473,8 +2586,9 @@
       "subMetas": {}
     },
     "牌面-suo3.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "8096391b-9838-4353-b0ff-b5df587a9fce",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2495,8 +2609,9 @@
       "subMetas": {}
     },
     "牌面-suo4.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "d52c6f48-aa34-4a4f-9eb8-fd3017928ed8",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2517,8 +2632,9 @@
       "subMetas": {}
     },
     "牌面-suo5.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "f75f1878-3304-4569-890b-372d8e14a32c",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2539,8 +2655,9 @@
       "subMetas": {}
     },
     "牌面-suo6.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "bce19851-579e-488b-9c9f-ea81f237286a",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2561,8 +2678,9 @@
       "subMetas": {}
     },
     "牌面-suo7.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "7d55ee4d-56e5-4b2b-9f85-a5c1ae0b0cd7",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2583,8 +2701,9 @@
       "subMetas": {}
     },
     "牌面-suo8.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "9eb69535-9e08-4460-a06d-5b363f5a1249",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2605,8 +2724,9 @@
       "subMetas": {}
     },
     "牌面-suo9.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "93381496-efc8-429c-bb09-c12e13f4a61f",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2627,8 +2747,9 @@
       "subMetas": {}
     },
     "牌面-tong1.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "467fbb9c-79d0-4262-a0bf-cab52b0bc3b3",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2649,8 +2770,9 @@
       "subMetas": {}
     },
     "牌面-tong2.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "fd867fd6-afbb-40a4-b985-222b233fb794",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2671,8 +2793,9 @@
       "subMetas": {}
     },
     "牌面-tong3.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "008af346-96df-4754-b0b8-81abf936d136",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2693,8 +2816,9 @@
       "subMetas": {}
     },
     "牌面-tong4.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "a0c98fb9-0b46-4663-930c-ca43eea06473",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2715,8 +2839,9 @@
       "subMetas": {}
     },
     "牌面-tong5.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "5b3ef8f2-c5b1-46b4-8edf-efb41b6db2a7",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2737,8 +2862,9 @@
       "subMetas": {}
     },
     "牌面-tong6.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "7a400237-b1e8-441e-ac5a-789b2ba65cfa",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2759,8 +2885,9 @@
       "subMetas": {}
     },
     "牌面-tong7.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "5d92d0d3-1a0c-421f-9fc5-daaae623dc95",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2781,8 +2908,9 @@
       "subMetas": {}
     },
     "牌面-tong8.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "7f465705-54c6-4868-8f45-53358bbc2335",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2803,8 +2931,9 @@
       "subMetas": {}
     },
     "牌面-tong9.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "8fe8a04f-5f95-496f-ad91-fa8bcdb29172",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2825,8 +2954,9 @@
       "subMetas": {}
     },
     "牌面-wan1.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "6a1a9208-9ab1-471e-895c-225de0a627d2",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2847,8 +2977,9 @@
       "subMetas": {}
     },
     "牌面-wan2.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "20434c06-de33-4219-80cd-0a2a297f3930",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2869,8 +3000,9 @@
       "subMetas": {}
     },
     "牌面-wan3.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "1499f9e4-4bfa-4c33-a196-b941a00d65d1",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2891,8 +3023,9 @@
       "subMetas": {}
     },
     "牌面-wan4.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "08d638a9-bb76-404c-8acb-2f97322cfaa6",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2913,8 +3046,9 @@
       "subMetas": {}
     },
     "牌面-wan5.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "2d041342-15b1-4609-9304-e5d9cf5c5be5",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2935,8 +3069,9 @@
       "subMetas": {}
     },
     "牌面-wan6.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "28258d98-8c30-4b14-8091-1a4a31450eed",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2957,8 +3092,9 @@
       "subMetas": {}
     },
     "牌面-wan7.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "62ab66fd-0d85-4b9a-b742-aa7c69d1b467",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -2979,8 +3115,9 @@
       "subMetas": {}
     },
     "牌面-wan8.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "4eaad02d-acba-421b-9bd6-4f797c09d972",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -3001,8 +3138,9 @@
       "subMetas": {}
     },
     "牌面-wan9.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "11416693-58e7-41ba-a0ab-b9eddf3e1028",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -3023,8 +3161,9 @@
       "subMetas": {}
     },
     "牌面-wind1.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "6f2d175e-cfd8-402a-8ea0-a91b102b4541",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -3045,8 +3184,9 @@
       "subMetas": {}
     },
     "牌面-wind2.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "a3345c93-3584-45dd-b610-2474d8e8e86a",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -3067,8 +3207,9 @@
       "subMetas": {}
     },
     "牌面-wind3.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "659ed61d-4d4e-4e40-b73c-5b7eb1b659da",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -3089,8 +3230,9 @@
       "subMetas": {}
     },
     "牌面-wind4.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "343ec634-6281-4468-aa85-1b9bc454aed6",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -3111,8 +3253,9 @@
       "subMetas": {}
     },
     "牌面-wind5.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "2015133c-4a8e-4bb6-939c-2f51834055e3",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -3133,8 +3276,9 @@
       "subMetas": {}
     },
     "牌面-wind6.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "04a054a8-1206-4a5b-bb85-803a334ba2cb",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -3155,8 +3299,9 @@
       "subMetas": {}
     },
     "牌面-wind7.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "59bc026c-a09b-45a7-acc6-d9728b1afe71",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -3177,8 +3322,9 @@
       "subMetas": {}
     },
     "用户信息底.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "91c85e64-8210-4b32-bb33-000bf6b56c58",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -3199,8 +3345,9 @@
       "subMetas": {}
     },
     "红心.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "ee10a2ac-22a5-4ecc-8b11-0f91efb07eed",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -3221,8 +3368,9 @@
       "subMetas": {}
     },
     "聊天.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "d8d0a402-66e2-435d-9a98-5a3fec87c859",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -3243,8 +3391,9 @@
       "subMetas": {}
     },
     "背_大.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "9b48ba33-b7b6-4405-9d38-4940e6f23131",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -3265,8 +3414,9 @@
       "subMetas": {}
     },
     "自己出牌对家出牌对家碰牌 (2).png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "1f21d000-d765-476f-bd90-ed3ce63684af",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -3287,8 +3437,9 @@
       "subMetas": {}
     },
     "自己出牌对家出牌对家碰牌.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "13ba2761-544f-4b24-bbb2-5846c0a43c3c",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -3309,8 +3460,9 @@
       "subMetas": {}
     },
     "自己手牌.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "89ee355f-1b6d-46a9-b061-9cefa94df2a9",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -3331,8 +3483,9 @@
       "subMetas": {}
     },
     "自己杠牌.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "369e623c-d7fd-4b75-a6a9-22c4654a1048",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -3353,8 +3506,9 @@
       "subMetas": {}
     },
     "金币底.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "50a60ae9-1346-4a26-8b63-5145bdab3215",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -3375,8 +3529,9 @@
       "subMetas": {}
     },
     "金币玻璃底框.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "bf8365f9-8c62-4fb5-a331-75cf527415f2",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -3397,8 +3552,9 @@
       "subMetas": {}
     },
     "麻将牌.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "9d0c86b9-1530-47c3-9544-e92fa01234bd",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,
@@ -3419,8 +3575,9 @@
       "subMetas": {}
     },
     "黑桃.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "57a32272-ba94-4102-a140-dc3f09bb12cd",
+      "importer": "sprite-frame",
       "rawTextureUuid": "f02856a1-ba12-4925-a2c4-a2a6f14664bb",
       "trimType": "auto",
       "trimThreshold": 1,

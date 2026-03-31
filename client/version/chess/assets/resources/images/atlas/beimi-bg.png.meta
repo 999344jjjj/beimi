@@ -1,13 +1,21 @@
 {
-  "ver": "1.0.0",
+  "ver": "2.3.7",
   "uuid": "560a5b29-7d76-498b-b925-100e0a0ebd12",
+  "importer": "texture",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1746,
+  "height": 1541,
+  "platformSettings": {},
   "subMetas": {
     "beimi-bg": {
-      "ver": "1.0.3",
+      "ver": "1.0.6",
       "uuid": "fab6f388-747a-4656-9473-9310b4a8005b",
+      "importer": "sprite-frame",
       "rawTextureUuid": "560a5b29-7d76-498b-b925-100e0a0ebd12",
       "trimType": "auto",
       "trimThreshold": 1,

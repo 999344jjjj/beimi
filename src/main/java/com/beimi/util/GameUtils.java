@@ -21,6 +21,9 @@ import com.beimi.core.engine.game.Message;
 import com.beimi.core.engine.game.iface.ChessGame;
 import com.beimi.core.engine.game.impl.DizhuGame;
 import com.beimi.core.engine.game.impl.MaJiangGame;
+import com.beimi.core.engine.game.impl.DezhouGame;
+import com.beimi.core.engine.game.impl.BullfightGame;
+import com.beimi.core.engine.game.impl.ZhajinhuaGame;
 import com.beimi.core.engine.game.model.MJCardMessage;
 import com.beimi.core.engine.game.model.Playway;
 import com.beimi.core.engine.game.model.Type;
@@ -59,6 +62,9 @@ public class GameUtils {
 	static{
 		games.put("dizhu", new DizhuGame()) ;
 		games.put("majiang", new MaJiangGame()) ;
+		games.put("dezhou", new DezhouGame()) ;
+		games.put("bullfight", new BullfightGame()) ;
+		games.put("zhajinhua", new ZhajinhuaGame()) ;
 	}
 	
 	/**
@@ -80,6 +86,12 @@ public class GameUtils {
 				game = (Game) BMDataContext.getContext().getBean("dizhuGame");
 			}else if(dic.getCode().equals("majiang") || gamePlayway.getCode().equals("majiang")){
 				game = (Game) BMDataContext.getContext().getBean("majiangGame");
+			}else if(dic.getCode().equals("dezhou") || gamePlayway.getCode().equals("dezhou")){
+				game = (Game) BMDataContext.getContext().getBean("dezhouGame");
+			}else if(dic.getCode().equals("bullfight") || gamePlayway.getCode().equals("bullfight")){
+				game = (Game) BMDataContext.getContext().getBean("bullfightGame");
+			}else if(dic.getCode().equals("zhajinhua") || gamePlayway.getCode().equals("zhajinhua")){
+				game = (Game) BMDataContext.getContext().getBean("zhajinhuaGame");
 			}
 		}
 

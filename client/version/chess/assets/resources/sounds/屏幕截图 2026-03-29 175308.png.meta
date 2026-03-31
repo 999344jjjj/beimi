@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "4a919d86-0e61-40b9-b110-e550dcc90f1a",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 1053,
+  "height": 295,
+  "platformSettings": {},
+  "subMetas": {
+    "屏幕截图 2026-03-29 175308": {
+      "ver": "1.0.6",
+      "uuid": "e79b7e7a-d27a-47fb-a71d-2018b2d81bcc",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "4a919d86-0e61-40b9-b110-e550dcc90f1a",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 1053,
+      "height": 295,
+      "rawWidth": 1053,
+      "rawHeight": 295,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

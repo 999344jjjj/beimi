@@ -7,11 +7,38 @@ dialect  "mvel"
 //declare any global variables here
 
 
-rule "createroom"
+rule "createroom_dizhu"
 	salience 100
 	lock-on-active true
     when
         $gameRoom:GameRoom(extparams!= null , extparams.get("gametype") == "dizhu")
+    then
+        modify($gameRoom) {numofgames = $gameRoom.extparams["games"] };
+end
+
+rule "createroom_dezhou"
+	salience 100
+	lock-on-active true
+    when
+        $gameRoom:GameRoom(extparams!= null , extparams.get("gametype") == "dezhou")
+    then
+        modify($gameRoom) {numofgames = $gameRoom.extparams["games"] };
+end
+
+rule "createroom_bullfight"
+	salience 100
+	lock-on-active true
+    when
+        $gameRoom:GameRoom(extparams!= null , extparams.get("gametype") == "bullfight")
+    then
+        modify($gameRoom) {numofgames = $gameRoom.extparams["games"] };
+end
+
+rule "createroom_zhajinhua"
+	salience 100
+	lock-on-active true
+    when
+        $gameRoom:GameRoom(extparams!= null , extparams.get("gametype") == "zhajinhua")
     then
         modify($gameRoom) {numofgames = $gameRoom.extparams["games"] };
 end
