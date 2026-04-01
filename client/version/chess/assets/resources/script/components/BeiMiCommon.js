@@ -192,7 +192,7 @@ cc.Class({
             cc.director.loadScene(name);
         });
     },
-    preload:function(extparams , self){
+    preload:function(extparams , self){ 
         this.loadding();
         /**
          *切换游戏场景之前，需要先检查是否 是在游戏中，如果是在游戏中，则直接进入该游戏，如果不在游戏中，则执行 新场景游戏
@@ -206,6 +206,18 @@ cc.Class({
             orgi:cc.beimi.user.orgi
         } ;
         cc.beimi.socket.emit("gamestatus" , JSON.stringify(param));
+        
+        // 发送joinroom事件，创建游戏房间并添加AI玩家
+        setTimeout(function(){
+            var joinParam = {
+                token:cc.beimi.authorization,
+                playway:extparams.playway,
+                orgi:cc.beimi.user.orgi,
+                room:null,
+                extparams:extparams
+            };
+            cc.beimi.socket.emit("joinroom" , JSON.stringify(joinParam));
+        }, 100);
     },
     root:function(){
         return cc.find("Canvas");

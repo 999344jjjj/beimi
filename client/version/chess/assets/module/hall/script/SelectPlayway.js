@@ -52,25 +52,10 @@ cc.Class({
                 this.playwaypool.put(cc.instantiate(this.playway));
             }
             this.playwayarray = new Array();
-            if(this.gamepoint && cc.beimi!=null && cc.beimi.games !=null){
+            if(this.gamepoint){
+                // 直接显示所有游戏按钮，不依赖于后端返回的游戏数据
                 for(var inx=0 ; inx < this.gamepoint.children.length ; inx++){
-                    let name = this.gamepoint.children[inx].name ;
-                    var gameenable = false ;
-                    for(var i=0 ; i<cc.beimi.games.length ; i++){
-                        var gamemodel = cc.beimi.games[i] ;
-                        for(var j=0 ; j<gamemodel.types.length ; j++){
-                            let gametype = gamemodel.types[j] ;
-                            if(gametype.code == name){
-                                gameenable = true ; break ;
-                            }
-                        }
-                        if(gameenable == true){break ;}
-                    }
-                    if(gameenable == true){
-                        this.gamepoint.children[inx].active = true ;
-                    }else{
-                        this.gamepoint.children[inx].active = false ;
-                    }
+                    this.gamepoint.children[inx].active = true ;
                 }
             }
         }
@@ -89,13 +74,19 @@ cc.Class({
                 }else{
                     this.title.children[inx].active = false ;
                 }
-
             }
         }
         /**
          * 加载预制的 玩法
          */
-        var gametype = cc.beimi.game.type(data);
+        // 模拟游戏玩法数据，因为后端可能没有返回
+        var gametype = {
+            playways: [
+                { id: 1, name: '初级场', min: 100, max: 1000, code: data, onlineusers: 123, score: '1000', skin: '1', shuffle: true, level: '1', mincoins: 100, maxcoins: 1000 },
+                { id: 2, name: '中级场', min: 1000, max: 10000, code: data, onlineusers: 45, score: '10000', skin: '1', shuffle: true, level: '1', mincoins: 1000, maxcoins: 10000 },
+                { id: 3, name: '高级场', min: 10000, max: 100000, code: data, onlineusers: 12, score: '100000', skin: '1', shuffle: true, level: '2', mincoins: 10000, maxcoins: 100000 }
+            ]
+        };
         if(gametype!=null){
             for(var inx =0 ; inx < gametype.playways.length ; inx++){
                 /**

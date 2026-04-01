@@ -34,9 +34,8 @@ cc.Class({
             if(cc.beimi.gametype!=null && cc.beimi.gametype != ""){//只定义了单一游戏类型 ，否则 进入游戏大厅
                 object.scene(cc.beimi.gametype , object) ;
             }else{
-                /**
-                 * 暂未实现功能
-                 */
+                //进入游戏大厅
+                object.scene("hall" , object) ;
             }
         }
     },
