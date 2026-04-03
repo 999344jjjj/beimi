@@ -35,7 +35,10 @@ cc.Class({
             playway  : thisplayway.data.id
         } ;
         this.closeOpenWin();
-        this.preload(extparams , self);
+        console.log('[PlaywayClick] 点击场次按钮，直接加载场景:', extparams.gametype);
+        cc.beimi.extparams = extparams;
+        // 最直接的方式，直接加载场景
+        cc.director.loadScene(extparams.gametype);
     },
     createRoom:function(event,data){
         let self = this ;

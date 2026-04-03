@@ -30,6 +30,10 @@ cc.Class({
     },
     connect:function(){
         let self = this ;
+        // 防止重复场景切换的标志
+        if(!cc.beimi._sceneSwitching) {
+            cc.beimi._sceneSwitching = false;
+        }
         /**
          * 登录成功后，创建 Socket链接，
          */
@@ -37,7 +41,15 @@ cc.Class({
             cc.beimi.socket.disconnect();
             cc.beimi.socket = null ;
         }
-        cc.beimi.socket = window.io.connect(cc.beimi.http.wsURL + '/bm/game',{"reconnection":true});
+        
+        // 尝试连接socket，但失败不影响游戏
+        try{
+            cc.beimi.socket = window.io.connect(cc.beimi.http.wsURL + '/bm/game',{"reconnection":true});
+        }catch(e){
+            console.warn('[connect] Socket连接失败，使用离线模式:', e);
+            cc.beimi.socket = null;
+            return null;
+        }
         var param = {
             token:cc.beimi.authorization,
             orgi:cc.beimi.user.orgi
@@ -51,6 +63,12 @@ cc.Class({
             //self.alert("SHOW TRUE");
         });
 
+        // 检查socket是否成功创建
+        if(!cc.beimi.socket){
+            console.log('[connect] Socket未创建，跳过事件绑定');
+            return null;
+        }
+        
         cc.beimi.socket.on('connect', function (data) {
             console.log("connected to server");
             //self.alert("connected to server");
@@ -65,9 +83,11 @@ cc.Class({
 
         cc.beimi.socket.emit("gamestatus" , JSON.stringify(param));
         cc.beimi.socket.on("gamestatus" , function(result){
+            console.log('[connect] 收到gamestatus响应');
             if(result!=null) {
                 var data = self.parse(result) ;
-                if(cc.beimi.extparams !=null){
+                // 只在没有设置extparams时才处理gamestatus，避免干扰手动场景切换
+                if(cc.beimi.extparams == null){
                     if(data.gamestatus == "playing" && data.gametype != null){
                         /**
                          * 修正重新进入房间后 玩法被覆盖的问题，从服务端发送过来的 玩法数据是 当前玩家所在房间的玩法，是准确的
@@ -84,7 +104,7 @@ cc.Class({
                         cc.beimi.sessiontimeout = true ;
                         self.alert("登录已过期，请重新登录") ;
                     }else{
-                        self.scene(cc.beimi.extparams.gametype , self) ;
+                        // 不自动场景切换，让用户手动点击
                     }
                 }
                 cc.beimi.gamestatus = data.gamestatus;
@@ -141,8 +161,20 @@ cc.Class({
         this.closeloadding();
     },
     closeloadding:function(){
-        if(cc.find("Canvas/loadding")){
-            cc.beimi.loadding.put(cc.find("Canvas/loadding"));
+        console.log('[closeloadding] 尝试关闭loading动画');
+        var loaddingNode = cc.find("Canvas/loadding");
+        if(loaddingNode){
+            console.log('[closeloadding] 找到loading节点，准备回收');
+            try{
+                cc.beimi.loadding.put(loaddingNode);
+                console.log('[closeloadding] loading节点回收成功');
+            }catch(e){
+                console.warn('[closeloadding] 回收loading节点失败:', e);
+                // 如果回收失败，直接销毁
+                loaddingNode.destroy();
+            }
+        }else{
+            console.log('[closeloadding] 没有找到loading节点');
         }
     },
     closeOpenWin:function(){
@@ -185,39 +217,16 @@ cc.Class({
         }
     },
     scene:function(name , self){
-        cc.director.preloadScene(name, function () {
-            if(cc.beimi){
-                self.closeloadding(self.loaddingDialog);
-            }
-            cc.director.loadScene(name);
-        });
+        console.log('[scene] 直接加载场景:', name);
+        // 直接加载场景，不搞任何复杂的东西
+        cc.director.loadScene(name);
     },
     preload:function(extparams , self){ 
-        this.loadding();
-        /**
-         *切换游戏场景之前，需要先检查是否 是在游戏中，如果是在游戏中，则直接进入该游戏，如果不在游戏中，则执行 新场景游戏
-         */
+        console.log('[preload] 开始加载, gametype:', extparams.gametype, 'playway:', extparams.playway);
         cc.beimi.extparams = extparams ;
-        /**
-         * 发送状态查询请求，如果玩家当前在游戏中，则直接进入游戏回复状态，如果玩家不在游戏中，则创建新游戏场景
-         */
-        var param = {
-            token:cc.beimi.authorization,
-            orgi:cc.beimi.user.orgi
-        } ;
-        cc.beimi.socket.emit("gamestatus" , JSON.stringify(param));
-        
-        // 发送joinroom事件，创建游戏房间并添加AI玩家
-        setTimeout(function(){
-            var joinParam = {
-                token:cc.beimi.authorization,
-                playway:extparams.playway,
-                orgi:cc.beimi.user.orgi,
-                room:null,
-                extparams:extparams
-            };
-            cc.beimi.socket.emit("joinroom" , JSON.stringify(joinParam));
-        }, 100);
+        // 直接进入场景，不等待任何东西
+        console.log('[preload] 直接调用scene函数');
+        self.scene(extparams.gametype, self);
     },
     root:function(){
         return cc.find("Canvas");

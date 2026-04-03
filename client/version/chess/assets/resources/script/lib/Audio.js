@@ -2,97 +2,102 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        // foo: {
-        //    default: null,      // The default value will be used only when the component attaching
-        //                           to a node for the first time
-        //    url: cc.Texture2D,  // optional, default is typeof default
-        //    serializable: true, // optional, default is true
-        //    visible: true,      // optional, default is true
-        //    displayName: 'Foo', // optional
-        //    readonly: false,    // optional, default is false
-        // },
-        // ...
-        bgVolume:1.0,           // 背景音量
-
-        deskVolume:1.0,         //   房间 房间音量
-        
-        bgAudioID:-1            //   背景 音乐  id
+        bgVolume: 1.0,
+        deskVolume: 1.0,
+        bgAudioID: -1,
+        sfxVolume: 1.0
     },
 
-    // use this for initialization
     init: function () {
-        var t = cc.sys.localStorage.getItem("bgVolume");
-        if(t != null){
-            this.bgVolume = parseFloat(t);    
+        var bgVol = cc.sys.localStorage.getItem("bgVolume");
+        if (bgVol != null) {
+            this.bgVolume = parseFloat(bgVol);
         }
-        
-        var t = cc.sys.localStorage.getItem("deskVolume");
-
-        if(t != null){
-            this. deskVolume = parseFloat(t);    
+        var deskVol = cc.sys.localStorage.getItem("deskVolume");
+        if (deskVol != null) {
+            this.deskVolume = parseFloat(deskVol);
+            this.sfxVolume = parseFloat(deskVol);
         }
-        
         cc.game.on(cc.game.EVENT_HIDE, function () {
-            cc.audioEngine.pauseAll();
+            try { cc.audioEngine.pauseAll(); } catch (e) {}
         });
         cc.game.on(cc.game.EVENT_SHOW, function () {
-            cc.audioEngine.resumeAll();
+            try { cc.audioEngine.resumeAll(); } catch (e) {}
         });
     },
 
-    // called every frame, uncomment this function to activate update callback
-    // update: function (dt) {
+    playBGM: function (url) {
+        console.log('[Audio] 准备播放背景音乐:', url);
+        try {
+            cc.audioEngine.stopMusic();
+        } catch (e) {
+            console.warn('[Audio] stopMusic失败:', e);
+        }
+        try {
+            var audioUrl = cc.url.raw("resources/sounds/" + url);
+            console.log('[Audio] 音频URL:', audioUrl);
+            this.bgAudioID = cc.audioEngine.playMusic(audioUrl, true);
+            console.log('[Audio] 背景音乐播放成功, audioID:', this.bgAudioID);
+        } catch (e) {
+            cc.warn('[Audio] 播放背景音乐失败（不影响进入房间）: ' + url, e);
+            this.bgAudioID = -1;
+        }
+    },
 
-    // },
-    
-    getUrl:function(url){
-        return cc.url.raw("resources/sounds/" + url);
-    },
-    
-    playBGM:function(url){
-        var audioUrl = this.getUrl(url);
-        if(this.bgAudioID >= 0){
-            cc.audioEngine.stop(this.bgAudioID);
+    playSFX: function (url) {
+        if (this.sfxVolume <= 0) {
+            return false;
         }
-        this.bgAudioID = cc.audioEngine.play(audioUrl,true,this.bgVolume);
-    },
-    
-    playSFX:function(url){
-        var audioUrl = this.getUrl(url);
-        if(this.sfxVolume > 0){
-            var audioId = cc.audioEngine.play(audioUrl,false,this.deskVolume);    
+        try {
+            var audioUrl = cc.url.raw("resources/sounds/" + url);
+            var sfxId = cc.audioEngine.playEffect(audioUrl, false, this.deskVolume);
+            return true;
+        } catch (e) {
+            cc.warn('[Audio] 播放音效失败（不影响进入房间）: ' + url, e);
+            return true;
         }
     },
-    
-    setSFXVolume:function(v){
-        if(this.sfxVolume != v){
-            cc.sys.localStorage.setItem("deskVolume",v);
+
+    setSFXVolume: function (v) {
+        if (this.sfxVolume != v) {
+            cc.sys.localStorage.setItem("deskVolume", v);
             this.deskVolume = v;
+            this.sfxVolume = v;
         }
     },
-    getState:function(){
-        return cc.audioEngine.getState(this.bgAudioID);
+
+    getState: function () {
+        try {
+            return cc.audioEngine.getState(this.bgAudioID);
+        } catch (e) {
+            return cc.audioEngine.AudioState.ERROR;
+        }
     },
-    setBGMVolume:function(v,force){
-        if(this.bgAudioID >= 0){
-            if(v > 0 && cc.audioEngine.getState(this.bgAudioID) === cc.audioEngine.AudioState.PAUSED){
-                cc.audioEngine.resume(this.bgAudioID);
-            }else if(v == 0){
-                cc.audioEngine.pause(this.bgAudioID);
+
+    setBGMVolume: function (v, force) {
+        if (this.bgAudioID >= 0) {
+            try {
+                if (v > 0 && cc.audioEngine.getState(this.bgAudioID) === cc.audioEngine.AudioState.PAUSED) {
+                    cc.audioEngine.resume(this.bgAudioID);
+                } else if (v == 0) {
+                    cc.audioEngine.pause(this.bgAudioID);
+                }
+            } catch (e) {}
+        }
+        if (this.bgVolume != v || force) {
+            cc.sys.localStorage.setItem("bgVolume", v);
+            this.bgVolume = v;
+            if (this.bgAudioID >= 0) {
+                try { cc.audioEngine.setVolume(this.bgAudioID, v); } catch (e) {}
             }
         }
-        if(this.bgVolume != v || force){
-            cc.sys.localStorage.setItem("bgVolume",v);
-            this.bgmVolume = v;
-            cc.audioEngine.setVolume(this.bgAudioID,v);
-        }
     },
-    
-    pauseAll:function(){
-        cc.audioEngine.pauseAll();
+
+    pauseAll: function () {
+        try { cc.audioEngine.pauseAll(); } catch (e) {}
     },
-    
-    resumeAll:function(){
-        cc.audioEngine.resumeAll();
+
+    resumeAll: function () {
+        try { cc.audioEngine.resumeAll(); } catch (e) {}
     }
 });

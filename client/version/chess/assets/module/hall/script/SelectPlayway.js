@@ -78,13 +78,30 @@ cc.Class({
         }
         /**
          * 加载预制的 玩法
+         * 场景名称映射：把按钮名称映射到实际存在的场景
          */
-        // 模拟游戏玩法数据，因为后端可能没有返回
+        // 场景名称映射表
+        var sceneMap = {
+            'dizhu': 'dizhu',      // 斗地主
+            'majiang': 'majiang',  // 麻将
+            'river': 'majiang',    // 血流 -> 麻将
+            'blood': 'majiang',    // 血战 -> 麻将
+            'dezhou': 'dezhou',    // 德州
+            'zhajinhua': 'zhajinhua', // 炸金花
+            'bull': 'bullfight',   // 斗牛 -> bullfight
+            'bullfight': 'bullfight' // 斗牛
+        };
+        
+        // 获取实际场景名称，如果没有映射则使用原始名称
+        var sceneName = sceneMap[data] || data;
+        console.log('[SelectPlayway] 按钮:', data, '-> 场景:', sceneName);
+        
+        // 模拟游戏玩法数据
         var gametype = {
             playways: [
-                { id: 1, name: '初级场', min: 100, max: 1000, code: data, onlineusers: 123, score: '1000', skin: '1', shuffle: true, level: '1', mincoins: 100, maxcoins: 1000 },
-                { id: 2, name: '中级场', min: 1000, max: 10000, code: data, onlineusers: 45, score: '10000', skin: '1', shuffle: true, level: '1', mincoins: 1000, maxcoins: 10000 },
-                { id: 3, name: '高级场', min: 10000, max: 100000, code: data, onlineusers: 12, score: '100000', skin: '1', shuffle: true, level: '2', mincoins: 10000, maxcoins: 100000 }
+                { id: 1, name: '初级场', min: 100, max: 1000, code: sceneName, onlineusers: 123, score: '1000', skin: '1', shuffle: true, level: '1', mincoins: 100, maxcoins: 1000 },
+                { id: 2, name: '中级场', min: 1000, max: 10000, code: sceneName, onlineusers: 45, score: '10000', skin: '1', shuffle: true, level: '1', mincoins: 1000, maxcoins: 10000 },
+                { id: 3, name: '高级场', min: 10000, max: 100000, code: sceneName, onlineusers: 12, score: '100000', skin: '1', shuffle: true, level: '2', mincoins: 10000, maxcoins: 100000 }
             ]
         };
         if(gametype!=null){
