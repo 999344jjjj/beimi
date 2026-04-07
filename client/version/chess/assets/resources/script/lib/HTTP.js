@@ -16,7 +16,7 @@ var HTTP = cc.Class({
     },
     statics: {
         baseURL:"http://127.0.0.1",
-        wsURL : "http://127.0.0.1:9081",
+        wsURL : "ws://127.0.0.1:9081",
         authorization: null,
         httpGet: function (url , success , error , object) {
             var xhr = cc.loader.getXMLHttpRequest();
@@ -53,7 +53,7 @@ var HTTP = cc.Class({
 
             // note: In Internet Explorer, the timeout property may be set only after calling the open()
             // method and before calling the send() method.
-            xhr.timeout = 3000;// 5 seconds for timeout
+            xhr.timeout = 30000;// 30 seconds for timeout
 
             xhr.send();
         },
@@ -98,7 +98,7 @@ var HTTP = cc.Class({
     
             // note: In Internet Explorer, the timeout property may be set only after calling the open()
             // method and before calling the send() method.
-            xhr.timeout = 5000;// 5 seconds for timeout
+            xhr.timeout = 30000;// 30 seconds for timeout
             
             xhr.send( HTTP.encodeFormData(params));
         }

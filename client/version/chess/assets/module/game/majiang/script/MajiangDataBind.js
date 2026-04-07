@@ -290,7 +290,11 @@ cc.Class({
                      * 处理完毕，清理掉全局变量
                      * @type {null}
                      */
-                    this.invite = cc.instantiate(this.inviteplayer) ;
+                    if (this.inviteplayer) {
+                    this.invite = cc.instantiate(this.inviteplayer);
+                } else {
+                    cc.error('[Game] inviteplayer预制体为空！请检查资源引用');
+                }
                 }
                 this.initgame();
             }
@@ -640,7 +644,11 @@ cc.Class({
         //结算界面，
         context.gameover = false ;
         setTimeout(function(){
-            context.summarypage = cc.instantiate(context.summary) ;
+            if (context.summary) {
+                    context.summarypage = cc.instantiate(context.summary);
+                } else {
+                    cc.error('[Game] summary预制体为空！请检查资源引用');
+                }
             context.summarypage.parent = context.root() ;
             let temp = context.summarypage.getComponent("MaJiangSummary") ;
             temp.create(context , data);

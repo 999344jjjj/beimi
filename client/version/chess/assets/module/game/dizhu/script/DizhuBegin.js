@@ -3,16 +3,6 @@ cc.Class({
     extends: beiMiCommon,
 
     properties: {
-        // foo: {
-        //    default: null,      // The default value will be used only when the component attaching
-        //                           to a node for the first time
-        //    url: cc.Texture2D,  // optional, default is typeof default
-        //    serializable: true, // optional, default is true
-        //    visible: true,      // optional, default is true
-        //    displayName: 'Foo', // optional
-        //    readonly: false,    // optional, default is false
-        // },
-        // ...
         gamebtn: {
             default: null,
             type: cc.Node
@@ -51,38 +41,46 @@ cc.Class({
         }
     },
 
-    // use this for initialization
     onLoad: function () {
-        /**
-         * 适配屏幕尺寸
-         */
+        console.log('[DizhuBegin.onLoad] 开始加载');
         this.resize();
 
         this.player = new Array() ;     //存放玩家数据
         this.pokercards = new Array();
         this.lastcards = new Array();
-        this.lastCardsPanel.active = false ;
+        if (this.lastCardsPanel) {
+            this.lastCardsPanel.active = false ;
+        }
         this.summarypage = null ;
         this.inited = false ;
         this.lasttip = null ;
+        
+        console.log('[DizhuBegin.onLoad] 初始化game对象');
+        this.game = this.getCommon("DizhuDataBind");
+        console.log('[DizhuBegin.onLoad] game对象初始化完成:', this.game);
+        
         if(cc.beimi!=null){
             if(cc.beimi.gamestatus!=null && cc.beimi.gamestatus == "playing"){
-                //恢复数据
                 this.recovery() ;
             }else if(cc.beimi.extparams!=null && cc.beimi.extparams.gamemodel == "room"){
-                /**
-                 * 房卡模式，开始启动游戏，当前玩家进入等待游戏的状态，显示邀请好友游戏，并分配 6位数字的房间号码
-                 */
-                /**
-                 * 处理完毕，清理掉全局变量
-                 * @type {null}
-                 */
-                this.invite = cc.instantiate(this.inviteplayer) ;
+                if(this.inviteplayer) {
+                    this.invite = cc.instantiate(this.inviteplayer) ;
+                }
             }
             this.initgame();
         }
+        
+        this.scheduleOnce(function() {
+            this.ensureGameBtnBinding();
+            this.restoreGlobalInteraction();
+        }, 0.3);
+        
+        console.log('[DizhuBegin.onLoad] 加载完成');
     },
+    
     begin:function(){
+        console.log('[DizhuBegin] 点击开始游戏按钮');
+        
         if(cc.beimi.data!=null && cc.beimi.data.enableai == true){
             this.statictimer("正在匹配玩家" , cc.beimi.data.waittime) ;
         }else{
@@ -90,7 +88,10 @@ cc.Class({
         }
         this.startgame("false") ;
     },
+    
     opendeal:function(){
+        console.log('[DizhuBegin.opendeal] 点击开始游戏按钮（opendeal）');
+        
         if(cc.beimi.data!=null && cc.beimi.data.enableai == true){
             this.statictimer("正在匹配玩家" , cc.beimi.data.waittime) ;
         }else{
@@ -98,37 +99,34 @@ cc.Class({
         }
         this.startgame("true") ;
     },
+    
     recovery:function(){
         this.statictimer("正在恢复数据，请稍候" , cc.beimi.data.waittime) ;
     },
+    
     initgame:function(){
         let self = this ;
-        this.gamebtn.active = true ;
-        this.continuegamebtn.active = false ;
+        
+        if(this.gamebtn) this.gamebtn.active = true ;
+        if(this.continuegamebtn) this.continuegamebtn.active = false ;
         if(this.ready()) {
             let socket = this.socket();
 
-
-
             this.game = this.getCommon("DizhuDataBind");
 
-            this.map("joinroom" , this.joinroom_event) ;          //加入房价
-            this.map("players" , this.players_event) ;            //接受玩家列表
-            this.map("catch" , this.catch_event) ;                  //叫地主
-            this.map("catchresult" , this.catchresult_event) ;      //最终抢到地主的玩家
-            this.map("lasthands" , this.lasthands_event) ;            //翻底牌
-            this.map("takecards" , this.takecards_event) ;            //出牌信息
-            this.map("ratio" , this.ratio_event) ;                      //有炸
-            this.map("play" , this.play_event) ;                      //接受玩家列表
-            this.map("allcards" , this.allcards_event) ;              //我出的牌
-            this.map("cardtips" , this.cardtips_event) ;              //提示
-            this.map("roomready" , this.roomready_event) ;              //提示
-
-            this.map("playeready" , this.playeready_event) ;            //玩家点击了开始游戏 ， 即准备就绪
-
-            this.map("cardtips" , this.cardtips_event) ;              //提示
-
-            this.map("recovery" , this.recovery_event) ;              //恢复牌局数据
+            this.map("joinroom" , this.joinroom_event) ;
+            this.map("players" , this.players_event) ;
+            this.map("catch" , this.catch_event) ;
+            this.map("catchresult" , this.catchresult_event) ;
+            this.map("lasthands" , this.lasthands_event) ;
+            this.map("takecards" , this.takecards_event) ;
+            this.map("ratio" , this.ratio_event) ;
+            this.map("play" , this.play_event) ;
+            this.map("allcards" , this.allcards_event) ;
+            this.map("cardtips" , this.cardtips_event) ;
+            this.map("roomready" , this.roomready_event) ;
+            this.map("playeready" , this.playeready_event) ;
+            this.map("recovery" , this.recovery_event) ;
 
             socket.on("command" , function(result){
                 cc.beimi.gamestatus = "playing" ;
@@ -137,18 +135,9 @@ cc.Class({
                     self.route(data.command)(data , self);
                 }
             });
-            /**
-             * 心跳检查，服务端发起的事件，服务端可以设置 PING的时长和 PING的 TimeOut
-             */
             socket.on("ping" , function(){
-
             });
 
-            /**
-             *   此处有个问题：游戏中，如果点击了返回，进入过其他游戏，这个 cc.beimi.extparams.playway
-             *   就发生了改变，会导致当前游戏结束后，继续游戏的时候会出现问题
-             * @type {{token: (*|null), playway, orgi, extparams: *}}
-             */
             var param = {
                 token:cc.beimi.authorization,
                 playway:cc.beimi.extparams.playway,
@@ -159,30 +148,18 @@ cc.Class({
 
             this.inited = true ;
         }
-
     },
-    /**
-     * 新创建牌局，首个玩家加入，进入等待状态，等待其他玩家加入，服务端会推送 players数据
-     * @param data
-     * @param context
-     */
+    
     joinroom_event:function(data , context){
-
         if(data.cardroom == true && context.inviteplayer!=null){
             let script = context.invite.getComponent("BeiMiQR")
             script.init(data.roomid);
             context.invite.parent = context.root() ;
         }
 
-
-        //显示 匹配中，并计时间，超过设定的倒计时时间即AI加入，根据当前的 玩家数量 匹配机器人
         if(data.player.id && data.player.id == cc.beimi.user.id){
-            //本人，开始计时
-            //console.log("本人") ;
-            //self.player[0] = data ;
-            context.index = data.index ;   //当前玩家所在位置
+            context.index = data.index ;
         }else{
-            //其他玩家加入，初始化
             var inroom = false ;
             for(var i = 0 ; i < context.player.length ; i++){
                 var player = context.player[i].getComponent("PlayerRender") ;
@@ -195,35 +172,19 @@ cc.Class({
             }
         }
     },
-    /**
-     * 房卡模式下，邀请的好友人到齐了
-     * @param data
-     * @param context
-     */
+    
     roomready_event:function(data , context){
         if(data.cardroom == true && context.invite!=null){
             context.invite.destroy();
         }
     },
-    /**
-     *
-     * @param data
-     * @param context
-     */
+    
     playeready_event:function(data , context){
         if(data.userid == cc.beimi.user.id){
             context.gamebtn.active = false ;
         }
     },
-    /**
-     * 接收到服务端的 推送的 玩家数据，根据玩家数据 恢复牌局 , 玩家座位排列方式 ， 和麻将统一， 都是东南西北方式 排列
-     * 0是首位玩家
-     * 1是右侧玩家
-     * 2是左侧玩家
-     * 麻将还有一个对家
-     * @param data
-     * @param context
-     */
+    
     players_event:function(data,context){
         var inx = -1 ;
         for(var i = 0 ; i<data.player.length ; i++){
@@ -243,6 +204,7 @@ cc.Class({
             }
         }
     },
+    
     playerexist:function(player,context){
         var inroom = false ;
         if(player.id == cc.beimi.user.id){
@@ -256,21 +218,14 @@ cc.Class({
         }
         return inroom ;
     },
-    /**
-     * 接收到服务端的 推送的 玩家数据，根据玩家数据 恢复牌局
-     * @param data
-     * @param context
-     */
+    
     catch_event:function(data,context){
-        /**
-         * 修改倍率
-         */
         if(context.ratio){
             context.ratio.string = data.ratio+"倍" ;
         }
-        if(data.userid == cc.beimi.user.id){    //该我抢
+        if(data.userid == cc.beimi.user.id){
             context.game.catchtimer(15);
-        }else{                              //该别人抢
+        }else{
             for(var inx =0 ; inx<context.player.length ; inx++){
                 var render = context.player[inx].getComponent("PlayerRender") ;
                 if(render.userid && render.userid == data.userid){
@@ -280,11 +235,7 @@ cc.Class({
             }
         }
     },
-    /**
-     * 接收到服务端的 恢复牌局的数据 恢复牌局
-     * @param data
-     * @param context
-     */
+    
     recovery_event:function(data,context){
         var mycards = context.decode(data.player.cards);
         if(context.waittimer != null){
@@ -294,12 +245,7 @@ cc.Class({
             }
         }
 
-        /**
-         * 清理掉 extparam;
-         * @type {boolean}
-         */
-
-        context.gamebtn.active = false ;
+        if(context.gamebtn) context.gamebtn.active = false ;
 
         if(context.ratio){
             context.ratio.string = data.ratio+"倍" ;
@@ -310,9 +256,6 @@ cc.Class({
             let pokencard = context.playcards(context.game , context, inx * 50-300 , mycards[inx]);
             context.registerProxy(pokencard);
         }
-        /**
-         * 赋值，解码牌面
-         */
         for(var i=0 ; i<context.pokercards.length ; i++){
             var pokencard = context.pokercards[i];
             pokencard.getComponent("BeiMiCard").order();
@@ -321,28 +264,19 @@ cc.Class({
 
         if(data.lasthands){
             var lasthands = context.decode(data.lasthands);
-            /**
-             * 底牌 ， 顶部的 三张底牌显示区域
-             */
             for(var i=0 ; i<context.lastcards.length ; i++){
                 var last = context.lastcards[i].getComponent("BeiMiCard") ;
                 last.setCard(lasthands[i]);
                 last.order();
             }
-            /**
-             * 设置地主标志
-             */
             if(data.banker.userid == cc.beimi.user.id){
                 context.game.lasthands(context , context.game , data.data ) ;
             }else{
                 context.getPlayer(data.banker.userid).setDizhuFlag(data.data);
             }
         }
-        /**
-         * 恢复最后出的牌
-         */
         if(data.last != null){
-            let lastcards = context.decode(data.last.cards);        //解析牌型
+            let lastcards = context.decode(data.last.cards);
             if (data.last.userid == cc.beimi.user.id) {
                 context.game.lasttakecards(context.game, context, data.last.cardsnum, lastcards , data.last);
             } else {
@@ -361,68 +295,35 @@ cc.Class({
             }
         }
     },
-    /**
-     * 有玩家出炸
-     * @param data
-     * @param context
-     */
+    
     ratio_event:function(data,context){
-        /**
-         * 修改倍率
-         */
-
-        if(data.king == true){
-            //王炸，播放音效
-        }else if(data.bomb == true){
-            //普通炸弹，播放音效
-        }
         if(context.ratio){
             context.ratio.string = data.ratio+"倍" ;
         }
     },
-    /**
-     * 接收到服务端的 推送的 玩家数据，根据玩家数据 恢复牌局
-     * @param data
-     * @param context
-     */
+    
     catchresult_event:function(data,context){
-        /**
-         * 修改倍率
-         */
         if(context.ratio){
             context.ratio.string = data.ratio+"倍" ;
         }
-        if(data.userid == cc.beimi.user.id){    //该我抢
+        if(data.userid == cc.beimi.user.id){
             context.game.catchresult(data);
-        }else{                              //该别人抢
+        }else{
             setTimeout(function(){
                 context.getPlayer(data.userid).catchresult(data);
             },1500) ;
         }
     },
-    /**
-     * 接收到服务端的 推送的 玩家数据，根据玩家数据 恢复牌局
-     * @param data
-     * @param context
-     */
+    
     lasthands_event:function(data,context){
         var lasthands = context.decode(data.lasthands);
-        /**
-         * 底牌 ， 顶部的 三张底牌显示区域
-         */
         for(var i=0 ; i<context.lastcards.length ; i++){
             var last = context.lastcards[i].getComponent("BeiMiCard") ;
             last.setCard(lasthands[i]);
             last.order();
         }
-        /**
-         * 当前玩家的 底牌处理
-         */
         if(data.userid == cc.beimi.user.id) {
             context.game.lasthands(context , context.game , data ) ;
-            /**
-             * 隐藏 其他玩家的 抢地主/不抢地主的 提示信息
-             */
             for(var inx =0 ; inx<context.player.length ; inx++){
                 var render = context.player[inx].getComponent("PlayerRender") ;
                 render.hideresult();
@@ -460,17 +361,13 @@ cc.Class({
             pc.zIndex = 54 - pc.card ;
         }
     },
-    /**
-     * 接收到服务端的 推送的 玩家数据，根据玩家数据 恢复牌局
-     * @param data
-     * @param context
-     */
+    
     takecards_event:function(data,context){
         context.lasttip = null ;
         if(data.allow == true) {
             var lastcards ;
             if(data.donot == false){
-                lastcards = context.decode(data.cards);        //解析牌型
+                lastcards = context.decode(data.cards);
             }
             if (data.userid == cc.beimi.user.id) {
                 context.game.unselected(context , context.game) ;
@@ -479,7 +376,7 @@ cc.Class({
                 context.getPlayer(data.userid).lasttakecards(context.game, context, data.cardsnum, lastcards , data);
             }
 
-            context.game.selectedcards.splice(0 ,context.game.selectedcards.length );//清空
+            context.game.selectedcards.splice(0 ,context.game.selectedcards.length );
             if(data.over == false){
                 if (data.nextplayer == cc.beimi.user.id) {
                     context.game.playtimer(context.game, 25 , data.automic);
@@ -487,7 +384,7 @@ cc.Class({
                     context.getPlayer(data.nextplayer).playtimer(context.game, 25);
                 }
             }
-        }else{//出牌不符合规则，需要进行提示
+        }else{
             context.game.notallow.active = true ;
             setTimeout(function(){
                 context.game.notallow.active = false ;
@@ -495,33 +392,21 @@ cc.Class({
             context.game.unselected(context , context.game);
         }
     },
-    /**
-     * 接收到服务端的 出牌提示信息
-     * @param data
-     * @param context
-     */
+    
     cardtips_event:function(data,context){
         context.game.unselected(context , context.game) ;
         if(data.allow == true) {
-            var tipcards = context.decode(data.cards);        //解析牌型
+            var tipcards = context.decode(data.cards);
             context.lasttip = tipcards.join(",") ;
             for(var inx = 0 ; inx < tipcards.length ; inx++){
                 context.game.cardtips(context , tipcards[inx] , tipcards) ;
             }
-        }else{//出牌不符合规则，需要进行提示
+        }else{
             context.game.cardtipsfornot(context , context.game);
         }
     },
-    /**
-     * 接收到服务端的 推送的 玩家数据，根据玩家数据 恢复牌局
-     * @param data
-     * @param context
-     */
+    
     play_event:function(data,context){
-        /**
-         * 增加了全局变量，gamestatus , 用于控制当前玩家退出后恢复数据
-         * @type {string}
-         */
         cc.beimi.gamestatus = "playing" ;
         var mycards = context.decode(data.player.cards);
         if(context.waittimer){
@@ -546,9 +431,6 @@ cc.Class({
                 data.game.pokerpool.put(data.left);
                 data.game.pokerpool.put(data.right);
 
-                /**
-                 * 赋值，解码牌面
-                 */
                 for(var i=0 ; i<data.self.pokercards.length ; i++){
                     var pokencard = data.self.pokercards[i];
                     pokencard.getComponent("BeiMiCard").order();
@@ -560,9 +442,6 @@ cc.Class({
 
         context.doLastCards(context.game , context , 3 , 0);
 
-        /**
-         *  发牌动作，每次6张，本人保留总计17张，其他人发完即回收
-         */
         setTimeout(function() {
             context.dealing(context.game , 6 , context , 0 , left , right , mycards) ;
             setTimeout(function(){
@@ -574,46 +453,21 @@ cc.Class({
             },500) ;
         }, 0);
     },
-    /**
-     * 打完牌，进入结算界面，结算界面流程：
-     * 1、提示你赢/输了
-     * 2、1秒后所有玩家的牌翻出来，显示剩余的牌
-     * 3、2秒后显示结算界面
-     * 4、玩家点选明牌开始还是继续游戏
-     * @param data
-     * @param context
-     */
+    
     allcards_event:function(data , context){
-        /**
-         * 全局变量控制，用于恢复数据
-         * @type {string}
-         */
         cc.beimi.gamestatus = "notready" ;
-        //结算界面，
         let player ;
         for(var i=0 ; i<data.players.length ; i++){
             var temp = data.players[i] ;
             if(temp.userid != cc.beimi.user.id){
-                var cards = context.decode(temp.cards);        //解析牌型
+                var cards = context.decode(temp.cards);
                 var tempscript = context.getPlayer(temp.userid) ;
-                for(var inx = 0 ; inx < cards.length ; inx++) {
-                    //tempscript.lasttakecards(context.game, context, cards.length, cards, data);
-                    /**
-                     * 最后牌局结束以后，显示所有玩家的手牌
-                     */
-                }
             }else{
                 player = temp  ;
             }
         }
         if(player!=null) {
-            /**
-             * 更新个人账号资产信息
-             */
             context.pva("gold" , player.balance);
-            /**
-             * 刷新个人资产显示 , 可以增加相关动画显示，duang的一声，显示的金币变成金光闪闪的，然后再变回去
-             */
             context.updatepva() ;
         }
         setTimeout(function(){
@@ -627,23 +481,19 @@ cc.Class({
                 let temp = context.summarypage.getComponent("SummaryDetail") ;
                 temp.create(context , data);
             }
-            /**
-             * 隐藏顶部的 底牌 显示区域
-             * @type {boolean}
-             */
             context.lastCardsPanel.active = false ;
 
-            if(data.gameRoomOver == true){//房间解散
+            if(data.gameRoomOver == true){
                 for(var inx = 0 ; inx<context.player.length ; inx++){
                     context.player[inx].destroy();
                 }
-                context.player.splice(0 , context.player.length) ;//房间解散，释放资源
+                context.player.splice(0 , context.player.length) ;
                 context.player = new Array();
                 context.clean();
             }
         } , 2000);
-
     },
+    
     getPlayer:function(userid){
         var tempRender;
         for(var inx =0 ; inx<this.player.length ; inx++){
@@ -654,18 +504,16 @@ cc.Class({
         }
         return tempRender ;
     },
+    
     dealing:function(game , num , self , times , left , right , cards , finished){
-        /**
-         * 处理当前玩家的 牌， 发牌 ，  17张牌， 分三次动作处理完成
-         */
         for(var i=0 ; i<num ; i++){
             var myCards = self.current(game , self ,times * 300 + i * 50-300, cards[times * 6 + i] , finished) ;
             this.registerProxy(myCards);
         }
         self.otherplayer(left  , 0 , num ,game , self) ;
         self.otherplayer(right , 1 , num ,game , self) ;
-
     },
+    
     otherplayer:function(currpoker , inx, num ,game , self){
         if(inx == 0){
             let seq = cc.sequence(
@@ -678,13 +526,13 @@ cc.Class({
             );
             currpoker.runAction(seq);
         }
-        //currpoker.setScale(1);
         var render = self.player[inx].getComponent("PlayerRender") ;
         for(var i=0 ; i<num ; i++){
             render.countcards(1);
         }
     },
-    doLastCards:function(game , self , num , card){//发三张底牌
+    
+    doLastCards:function(game , self , num , card){
         for(var i=0 ; i<num ; i++){
             var width = i * 80 - 80;
             let currpoker = game.minpokerpool.get() ;
@@ -696,15 +544,18 @@ cc.Class({
             self.lastcards[self.lastcards.length] = currpoker ;
         }
     },
+    
     registerProxy:function(myCard){
         if(myCard){
             var beiMiCard = myCard.getComponent("BeiMiCard") ;
             beiMiCard.proxy(this.game);
         }
     },
+    
     playcards:function(game , self , posx , card){
         return self.current(game ,self , posx , card , null);
     },
+    
     current:function(game , self , posx , card , func){
         let currpoker = game.pokerpool.get() ;
         var beiMiCard = currpoker.getComponent("BeiMiCard") ;
@@ -727,54 +578,76 @@ cc.Class({
         }
         return currpoker;
     },
+    
     reordering:function(self){
         for(var i=0 ; i<self.pokercards.length ; i++){
             self.pokercards[i].parent = self.poker ;
         }
     },
+    
     newplayer:function(inx , self , data , isRight){
+        console.log('[DizhuBegin.newplayer] 调用, inx:', inx, 'data:', data, 'isRight:', isRight);
+        
         var pos = cc.v2(520, 100) ;
         if(isRight == false){
             pos = cc.v2(-520,100) ;
         }
-        let game = self.getCommon("DizhuDataBind");
-        if(game && game.playerspool.size() > 0){
-            self.player[inx] = game.playerspool.get() ;
-            self.player[inx].parent = self.root() ;
-            self.player[inx].setPosition(pos);
-            var render = self.player[inx].getComponent("PlayerRender") ;
+        console.log('[DizhuBegin.newplayer] 位置:', pos);
+        
+        var rootNode = self.root();
+        var playerNodeName = 'player_' + inx;
+        var playerNode = cc.find(playerNodeName, rootNode);
+        
+        if(playerNode) {
+            console.log('[DizhuBegin.newplayer] 找到现有玩家节点:', playerNodeName);
+            self.player[inx] = playerNode;
+            var render = playerNode.getComponent("PlayerRender") ;
+            if(render){
+                console.log('[DizhuBegin.newplayer] 找到PlayerRender, 初始化玩家');
+                render.initplayer(data , isRight);
+            }
+            return;
+        }
+        
+        if(!self.waitting){
+            console.error('[DizhuBegin.newplayer] waitting 预制体为空，无法创建玩家！');
+            return;
+        }
+        
+        console.log('[DizhuBegin.newplayer] 使用 waitting 预制体创建玩家节点...');
+        var playerNode = cc.instantiate(self.waitting);
+        playerNode.name = 'player_' + inx;
+        playerNode.setPosition(pos);
+        playerNode.parent = rootNode;
+        
+        self.player[inx] = playerNode;
+        
+        var render = playerNode.getComponent("PlayerRender") ;
+        if(render){
+            console.log('[DizhuBegin.newplayer] 找到PlayerRender, 初始化玩家');
             render.initplayer(data , isRight);
         }
+        
+        console.log('[DizhuBegin.newplayer] 玩家节点创建完成！');
     },
-    // called every frame, uncomment this function to activate update callback
-    // update: function (dt) {
-
-    // },
-    /**
-     * 不抢/叫地主
-     */
+    
     givup:function(){
         if(this.ready()){
             let socket = this.socket();
             socket.emit("giveup","giveup");
         }
     },
-    /**
-     * 开始游戏
-     */
+    
     startgame:function(opendeal){
         if(this.ready()){
             let socket = this.socket();
             socket.emit("start",opendeal);
         }
     },
-    /**
-     * 不抢/叫地主
-     */
+    
     cardtips:function(){
         if(this.ready()){
             let socket = this.socket();
-
             if(this.lasttip!=null){
                 socket.emit("cardtips",this.lasttip);
             }else{
@@ -783,18 +656,14 @@ cc.Class({
             this.lasttip = null ;
         }
     },
-    /**
-     * 抢/叫地主触发事件
-     */
+    
     docatch:function(){
         if(this.ready()){
             let socket = this.socket();
             socket.emit("docatch","docatch");
         }
     },
-    /**
-     * 出牌
-     */
+    
     doPlayCards:function(){
         if(this.ready()){
             let socket = this.socket();
@@ -810,9 +679,7 @@ cc.Class({
         }
         this.lasttip = null ;
     },
-    /**
-     * 不出牌
-     */
+    
     noCards:function(){
         if(this.ready()){
             let socket = this.socket();
@@ -820,10 +687,11 @@ cc.Class({
         }
         this.lasttip = null ;
     },
+    
     clean:function(){
         for(var inx = 0 ; inx<this.pokercards.length ; inx++){
             let pc = this.pokercards[inx] ;
-            this.game.pokerpool.put(pc) ;//回收回去
+            this.game.pokerpool.put(pc) ;
         }
         this.pokercards.splice(0 , this.pokercards.length ) ;
         for(var i=0 ; i<this.lastcards.length ; i++){
@@ -841,39 +709,90 @@ cc.Class({
         this.game.clean(this);
         this.ratio.string = "15倍" ;
     },
+    
     onCloseClick:function(){
         this.continuegamebtn.active = true ;
     },
+    
     restart:function(command){
         this.game.restart();
         this.statictimer("正在匹配玩家" , 5) ;
-        /**
-         * 系统资源回收完毕，发送一个 重新开启游戏的 通知
-         */
         if(this.ready()){
             let socket = this.socket();
             socket.emit("restart" , command);
         }
     },
+    
     continuegame:function(){
         this.continuegamebtn.active = false ;
         this.restart("begin");
     },
+    
     statictimer:function(message , time){
+        if (!this.waitting) {
+            console.warn('[DizhuBegin.statictimer] waitting预制体为空，跳过');
+            return;
+        }
+        var rootNode = this.root();
+        if (!rootNode) {
+            console.warn('[DizhuBegin.statictimer] root节点为空，跳过');
+            return;
+        }
         this.waittimer = cc.instantiate(this.waitting);
-        this.waittimer.parent = this.root();
+        if (this.waittimer) {
+            this.waittimer.parent = rootNode;
 
-        let timer = this.waittimer.getComponent("BeiMiTimer");
-        if(timer){
-            timer.init(message , time , this.waittimer);
+            let timer = this.waittimer.getComponent("BeiMiTimer");
+            if(timer){
+                timer.init(message , time , this.waittimer);
+            }
         }
     },
+    
     onDestroy:function(){
         this.inited = false ;
         this.cleanmap();
         if(this.ready()){
             let socket = this.socket();
             socket.emit("leave","leave");
+        }
+    },
+    
+    ensureGameBtnBinding: function() {
+        console.log('[DizhuBegin] 确保按钮绑定...');
+        
+        if (!this.gamebtn) {
+            this.gamebtn = cc.find('Canvas/global/main/game');
+            console.log('[DizhuBegin] 自动绑定 gamebtn:', this.gamebtn);
+        }
+        
+        if (this.gamebtn) {
+            var self = this;
+            this.gamebtn.on(cc.Node.EventType.TOUCH_END, function() {
+                console.log('[DizhuBegin] TOUCH_END 事件触发（直接监听）');
+                self.begin();
+            }, this);
+            console.log('[DizhuBegin] 已添加直接监听');
+        }
+    },
+    
+    restoreGlobalInteraction: function() {
+        console.log('[DizhuBegin] 恢复全局交互...');
+        
+        var canvas = cc.find('Canvas');
+        if (canvas) {
+            canvas.active = true;
+            canvas.opacity = 255;
+            console.log('[DizhuBegin] Canvas 已恢复');
+        }
+        
+        var maskNames = ['mask', 'blocker', 'overlay'];
+        for (var i = 0; i < maskNames.length; i++) {
+            var mask = cc.find('Canvas/' + maskNames[i]);
+            if (mask) {
+                mask.active = false;
+                console.log('[DizhuBegin] 禁用遮罩:', maskNames[i]);
+            }
         }
     }
 });

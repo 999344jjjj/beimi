@@ -41,26 +41,7 @@ cc.Class({
     },
     error:function(object){
         object.closeloadding(object.loaddingDialog);
-        console.log('[login] 网络请求失败，使用离线模式直接进入游戏大厅');
-        // 创建模拟用户数据，允许离线进入游戏
-        var mockData = {
-            token: { id: 'offline_token_' + Date.now() },
-            data: {
-                id: 'guest_' + Date.now(),
-                username: '游客' + Math.floor(Math.random() * 10000),
-                goldcoins: 10000,
-                cards: 10,
-                diamonds: 0,
-                gamestatus: 'notready',
-                orgi: 'beimi'
-            },
-            games: [],
-            gametype: null
-        };
-        object.reset(mockData, JSON.stringify(mockData));
-        cc.beimi.gamestatus = 'notready';
-        // 直接进入游戏大厅，不创建socket连接
-        object.scene("hall", object);
+        object.alert("网络连接失败，请检查服务器是否启动");
     }
 
     // called every frame, uncomment this function to activate update callback

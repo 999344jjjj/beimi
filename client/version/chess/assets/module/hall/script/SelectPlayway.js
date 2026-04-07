@@ -82,6 +82,7 @@ cc.Class({
          */
         // 场景名称映射表
         var sceneMap = {
+            'basic': 'dizhu',      // 初级场 -> 斗地主
             'dizhu': 'dizhu',      // 斗地主
             'majiang': 'majiang',  // 麻将
             'river': 'majiang',    // 血流 -> 麻将

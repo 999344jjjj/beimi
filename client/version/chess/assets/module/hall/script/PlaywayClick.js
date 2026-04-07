@@ -30,14 +30,33 @@ cc.Class({
 
         let thisplayway = this.playway.getComponent("Playway");
 
+        // 场景名称映射表
+        var sceneMap = {
+            'basic': 'dizhu',      // 初级场 -> 斗地主
+            'dizhu': 'dizhu',      // 斗地主
+            'majiang': 'majiang',  // 麻将
+            'river': 'majiang',    // 血流 -> 麻将
+            'blood': 'majiang',    // 血战 -> 麻将
+            'dezhou': 'dezhou',    // 德州
+            'zhajinhua': 'zhajinhua', // 炸金花
+            'bull': 'bullfight',   // 斗牛 -> bullfight
+            'bullfight': 'bullfight' // 斗牛
+        };
+        
+        // 获取实际场景名称
+        var originalCode = thisplayway.data.code;
+        var sceneName = sceneMap[originalCode] || originalCode;
+        
         let extparams = {
-            gametype : thisplayway.data.code ,
+            gametype : sceneName,
             playway  : thisplayway.data.id
         } ;
         this.closeOpenWin();
-        console.log('[PlaywayClick] 点击场次按钮，直接加载场景:', extparams.gametype);
+        console.log('[PlaywayClick] 点击场次按钮，原始code:', originalCode, '-> 场景:', sceneName);
         cc.beimi.extparams = extparams;
-        // 最直接的方式，直接加载场景
+        
+        // 直接进入游戏场景
+        console.log('[PlaywayClick] 进入游戏场景');
         cc.director.loadScene(extparams.gametype);
     },
     createRoom:function(event,data){

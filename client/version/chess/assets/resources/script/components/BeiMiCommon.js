@@ -23,75 +23,88 @@ cc.Class({
         var check = false ;
         if(cc.beimi){
             check = true ;
+            if(cc.beimi.socket == null) {
+                console.warn('[BeiMiCommon.ready] Socket连接不存在');
+            }
         }else{
             this.scene("login" , this) ;
         }
         return check ;
     },
+    socketConnected: function() {
+        return cc.beimi != null && cc.beimi.socket != null;
+    },
     connect:function(){
         let self = this ;
-        // 防止重复场景切换的标志
         if(!cc.beimi._sceneSwitching) {
             cc.beimi._sceneSwitching = false;
         }
-        /**
-         * 登录成功后，创建 Socket链接，
-         */
+        
         if(cc.beimi.socket != null){
             cc.beimi.socket.disconnect();
             cc.beimi.socket = null ;
         }
         
-        // 尝试连接socket，但失败不影响游戏
+        console.log('[BeiMiCommon.connect] 开始连接服务器，地址:', cc.beimi.http.wsURL + '/bm/game');
+        
         try{
-            cc.beimi.socket = window.io.connect(cc.beimi.http.wsURL + '/bm/game',{"reconnection":true});
+            cc.beimi.socket = window.io.connect(cc.beimi.http.wsURL + '/bm/game', {
+                "reconnection": true,
+                "reconnectionDelay": 1000,
+                "reconnectionDelayMax": 5000,
+                "timeout": 20000
+            });
+            console.log('[BeiMiCommon.connect] Socket对象创建成功');
         }catch(e){
-            console.warn('[connect] Socket连接失败，使用离线模式:', e);
+            console.error('[BeiMiCommon.connect] Socket连接创建失败:', e);
+            self.alert("服务器连接失败，请检查网络设置");
             cc.beimi.socket = null;
             return null;
         }
+        
         var param = {
             token:cc.beimi.authorization,
             orgi:cc.beimi.user.orgi
         } ;
 
         cc.game.on(cc.game.EVENT_HIDE, function(event) {
-            //self.alert("HIDE TRUE");
         });
         cc.game.on(cc.game.EVENT_SHOW, function(event) {
-            console.log("SHOW TRUE");
-            //self.alert("SHOW TRUE");
+            console.log("[BeiMiCommon.connect] 游戏回到前台");
         });
 
-        // 检查socket是否成功创建
         if(!cc.beimi.socket){
-            console.log('[connect] Socket未创建，跳过事件绑定');
+            console.error('[BeiMiCommon.connect] Socket未创建');
             return null;
         }
         
         cc.beimi.socket.on('connect', function (data) {
-            console.log("connected to server");
-            //self.alert("connected to server");
+            console.log("[BeiMiCommon.connect] 已连接到服务器");
         });
 
         cc.beimi.socket.on('disconnect', function (data) {
-            console.log("disconnected from server");
-            //self.alert("disconnected from server");
-
+            console.log("[BeiMiCommon.connect] 与服务器断开连接");
+        });
+        
+        cc.beimi.socket.on('connect_error', function (error) {
+            console.error("[BeiMiCommon.connect] 连接错误:", error);
+            self.alert("无法连接到服务器，请检查服务器是否启动");
+        });
+        
+        cc.beimi.socket.on('connect_timeout', function () {
+            console.error("[BeiMiCommon.connect] 连接超时");
+            self.alert("服务器连接超时，请稍后重试");
         });
 
-
         cc.beimi.socket.emit("gamestatus" , JSON.stringify(param));
+        console.log('[BeiMiCommon.connect] 发送gamestatus请求');
+        
         cc.beimi.socket.on("gamestatus" , function(result){
-            console.log('[connect] 收到gamestatus响应');
+            console.log('[BeiMiCommon.connect] 收到gamestatus响应');
             if(result!=null) {
                 var data = self.parse(result) ;
-                // 只在没有设置extparams时才处理gamestatus，避免干扰手动场景切换
                 if(cc.beimi.extparams == null){
                     if(data.gamestatus == "playing" && data.gametype != null){
-                        /**
-                         * 修正重新进入房间后 玩法被覆盖的问题，从服务端发送过来的 玩法数据是 当前玩家所在房间的玩法，是准确的
-                         */
                         if(cc.beimi.extparams!=null){
                             cc.beimi.extparams.playway = data.playway ;
                             cc.beimi.extparams.gametype = data.gametype ;
@@ -100,23 +113,16 @@ cc.Class({
                             }
                         }
                         self.scene(data.gametype , self) ;
-                    }else if(data.gamestatus == "timeout"){ //会话过期，退出登录 ， 会话时间由后台容器提供控制
+                    }else if(data.gamestatus == "timeout"){
                         cc.beimi.sessiontimeout = true ;
                         self.alert("登录已过期，请重新登录") ;
-                    }else{
-                        // 不自动场景切换，让用户手动点击
                     }
                 }
                 cc.beimi.gamestatus = data.gamestatus;
             }
         });
 
-
-        /**
-         * 加入房卡模式的游戏类型 ， 需要校验是否是服务端发送的消息
-         */
         cc.beimi.socket.on("searchroom" , function(result){
-            //result 是 GamePlayway数据，如果找到了 房间数据，则进入房间，如果未找到房间数据，则提示房间不存在
             if(result!=null && cc.beimi.room_callback!=null) {
                 cc.beimi.room_callback(result , self);
             }
@@ -208,7 +214,7 @@ cc.Class({
         }
     },
     resize:function(){
-        let win = cc.director.getWinSize() ;
+        let win = cc.winSize ;
         cc.view.setDesignResolutionSize(win.width, win.height, cc.ResolutionPolicy.EXACT_FIT);
     },
     closealert:function(){
@@ -218,11 +224,30 @@ cc.Class({
     },
     scene:function(name , self){
         console.log('[scene] 直接加载场景:', name);
+        // 检查name是否为null或空
+        if(!name){
+            console.warn('[scene] 场景名称为空，默认加载hall场景');
+            name = 'hall';
+        }
+        // 清理重复的类
+        if (window.clearGameClasses) {
+            try {
+                window.clearGameClasses();
+            } catch (e) {
+                console.warn('[scene] 类清理失败:', e);
+            }
+        }
         // 直接加载场景，不搞任何复杂的东西
         cc.director.loadScene(name);
     },
     preload:function(extparams , self){ 
-        console.log('[preload] 开始加载, gametype:', extparams.gametype, 'playway:', extparams.playway);
+        console.log('[preload] 开始加载, gametype:', extparams ? extparams.gametype : 'null', 'playway:', extparams ? extparams.playway : 'null');
+        // 检查extparams是否有效
+        if(!extparams || !extparams.gametype){
+            console.warn('[preload] extparams或gametype为空，默认加载hall场景');
+            self.scene('hall', self);
+            return;
+        }
         cc.beimi.extparams = extparams ;
         // 直接进入场景，不等待任何东西
         console.log('[preload] 直接调用scene函数');

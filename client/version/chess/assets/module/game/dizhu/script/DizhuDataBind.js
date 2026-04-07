@@ -82,6 +82,12 @@ cc.Class({
     // use this for initialization
     onLoad: function () {
         let self = this ;
+        
+        console.log('[DizhuDataBind.onLoad] 开始初始化...');
+        
+        // 自动查找并绑定UI组件
+        this.autoBindUIComponents();
+        
         if(this.timer){
             this.timer.active = false ;
         }
@@ -101,27 +107,44 @@ cc.Class({
             this.cardtipmsg.active = false ;
         }
 
-
         this.playerspool = new cc.NodePool();
         this.myselfpool = new cc.NodePool();
-        this.pokerpool = new cc.NodePool();     //背面
-        this.minpokerpool = new cc.NodePool();     //背面
+        this.pokerpool = new cc.NodePool();
+        this.minpokerpool = new cc.NodePool();
 
-
-        this.selectedcards = new Array();   //存放当前玩家 选中 的牌
-
+        this.selectedcards = new Array();
         this.cardslist = new Array();
 
-        for(i=0 ; i<2 ; i++){
-            this.playerspool.put(cc.instantiate(this.player)); // 创建节点
+        // 检查预制体是否存在
+        if(this.player) {
+            for(i=0 ; i<2 ; i++){
+                this.playerspool.put(cc.instantiate(this.player));
+            }
+        } else {
+            console.warn('[DizhuDataBind.onLoad] player预制体未绑定');
         }
-        for(i =0 ; i<25 ; i++){
-            this.pokerpool.put(cc.instantiate(this.poker));     //牌-背面
+        
+        if(this.poker) {
+            for(i =0 ; i<25 ; i++){
+                this.pokerpool.put(cc.instantiate(this.poker));
+            }
+        } else {
+            console.warn('[DizhuDataBind.onLoad] poker预制体未绑定');
         }
-        for(i =0 ; i<60 ; i++){
-            this.minpokerpool.put(cc.instantiate(this.poker_min));     //牌-背面
+        
+        if(this.poker_min) {
+            for(i =0 ; i<60 ; i++){
+                this.minpokerpool.put(cc.instantiate(this.poker_min));
+            }
+        } else {
+            console.warn('[DizhuDataBind.onLoad] poker_min预制体未绑定');
         }
-        this.myselfpool.put(cc.instantiate(this.myself));
+        
+        if(this.myself) {
+            this.myselfpool.put(cc.instantiate(this.myself));
+        } else {
+            console.warn('[DizhuDataBind.onLoad] myself预制体未绑定');
+        }
 
         if(this.ready()){
             this.pva_format(cc.beimi.user.goldcoins , cc.beimi.user.cards , cc.beimi.user.diamonds , self);
@@ -129,12 +152,48 @@ cc.Class({
                 context.pva_format(cc.beimi.user.goldcoins , cc.beimi.user.cards , cc.beimi.user.diamonds , context) ;
             });
         }
+        
         if(this.myselfpool.size() > 0 && cc.beimi != null){
             this.playermysql = this.myselfpool.get();
             this.playermysql.parent = this.root() ;
             this.playermysql.setPosition(-520,-180);
             var render = this.playermysql.getComponent("PlayerRender") ;
             render.initplayer(cc.beimi.user);
+        }
+        
+        console.log('[DizhuDataBind.onLoad] 初始化完成');
+    },
+    
+    autoBindUIComponents: function() {
+        console.log('[DizhuDataBind.autoBindUIComponents] 自动绑定UI组件...');
+        
+        var canvas = cc.find('Canvas');
+        if(!canvas) {
+            console.warn('[DizhuDataBind.autoBindUIComponents] 找不到Canvas节点');
+            return;
+        }
+        
+        // 自动查找常用的UI节点
+        var uiPaths = {
+            'catchbtn': 'global/catchbtn',
+            'playbtn': 'global/playbtn',
+            'timer': 'global/timer',
+            'notallow': 'global/notallow',
+            'operesult': 'global/operesult',
+            'cardtipmsg': 'global/cardtipmsg',
+            'lastcards': 'global/lastcards',
+            'goldcoins': 'global/goldcoins',
+            'cards': 'global/cards'
+        };
+        
+        for(var key in uiPaths) {
+            if(!this[key]) {
+                var node = cc.find(uiPaths[key], canvas);
+                if(node) {
+                    this[key] = node;
+                    console.log('[DizhuDataBind.autoBindUIComponents] 自动绑定:', key, '->', uiPaths[key]);
+                }
+            }
         }
     },
     pva_format:function(coins, cards , diamonds , object){

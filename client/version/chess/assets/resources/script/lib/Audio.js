@@ -34,10 +34,32 @@ cc.Class({
             console.warn('[Audio] stopMusic失败:', e);
         }
         try {
-            var audioUrl = cc.url.raw("resources/sounds/" + url);
-            console.log('[Audio] 音频URL:', audioUrl);
-            this.bgAudioID = cc.audioEngine.playMusic(audioUrl, true);
-            console.log('[Audio] 背景音乐播放成功, audioID:', this.bgAudioID);
+            // 兼容旧版 API，同时尝试多种加载方式
+            var self = this;
+            var audioPath = "resources/sounds/" + url;
+            var audioUrl = null;
+            
+            // 方法1: 尝试使用 cc.url.raw (旧版方式)
+            if (cc.url && cc.url.raw) {
+                try {
+                    audioUrl = cc.url.raw(audioPath);
+                    console.log('[Audio] 使用 cc.url.raw 加载, URL:', audioUrl);
+                    this.bgAudioID = cc.audioEngine.playMusic(audioUrl, true);
+                    console.log('[Audio] 背景音乐播放成功 (cc.url.raw), audioID:', this.bgAudioID);
+                    return;
+                } catch (e) {
+                    console.warn('[Audio] cc.url.raw 方式失败:', e);
+                }
+            }
+            
+            // 方法2: 尝试直接使用路径
+            try {
+                this.bgAudioID = cc.audioEngine.playMusic(audioPath, true);
+                console.log('[Audio] 背景音乐播放成功 (直接路径), audioID:', this.bgAudioID);
+            } catch (e) {
+                cc.warn('[Audio] 所有音频加载方式都失败了:', e);
+                this.bgAudioID = -1;
+            }
         } catch (e) {
             cc.warn('[Audio] 播放背景音乐失败（不影响进入房间）: ' + url, e);
             this.bgAudioID = -1;
@@ -49,9 +71,30 @@ cc.Class({
             return false;
         }
         try {
-            var audioUrl = cc.url.raw("resources/sounds/" + url);
-            var sfxId = cc.audioEngine.playEffect(audioUrl, false, this.deskVolume);
-            return true;
+            // 兼容旧版 API，同时尝试多种加载方式
+            var self = this;
+            var audioPath = "resources/sounds/" + url;
+            var audioUrl = null;
+            
+            // 方法1: 尝试使用 cc.url.raw (旧版方式)
+            if (cc.url && cc.url.raw) {
+                try {
+                    audioUrl = cc.url.raw(audioPath);
+                    cc.audioEngine.playEffect(audioUrl, false, this.deskVolume);
+                    return true;
+                } catch (e) {
+                    console.warn('[Audio] cc.url.raw 音效方式失败:', e);
+                }
+            }
+            
+            // 方法2: 尝试直接使用路径
+            try {
+                cc.audioEngine.playEffect(audioPath, false, this.deskVolume);
+                return true;
+            } catch (e) {
+                cc.warn('[Audio] 音效加载失败:', e);
+                return true;
+            }
         } catch (e) {
             cc.warn('[Audio] 播放音效失败（不影响进入房间）: ' + url, e);
             return true;

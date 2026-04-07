@@ -109,6 +109,13 @@ cc.Class({
             }
 
             cc.beimi.audio.playBGM("bgMain.mp3");
+            
+            /**
+             * 加载自动修复器 - 自动检测并修复游戏组件
+             * 暂时注释，避免与 DizhuBegin.js 中的修复代码冲突
+             */
+            console.log('[init] 暂时跳过 AutoFixer 加载');
+            // require("AutoFixer");
         }
     }
 

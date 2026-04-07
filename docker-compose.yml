@@ -23,6 +23,10 @@ services:
       - 8080:8080
       # socket端口号
       - 9081:9081
+      # 游戏客户端连接端口
+      - 7456:7456
+      - 8086:8086
+      - 6789:6789
   beimi-client:
     image: nginx
     depends_on:
