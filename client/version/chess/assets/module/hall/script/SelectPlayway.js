@@ -97,13 +97,33 @@ cc.Class({
         var sceneName = sceneMap[data] || data;
         console.log('[SelectPlayway] 按钮:', data, '-> 场景:', sceneName);
         
-        // 模拟游戏玩法数据
-        var gametype = {
-            playways: [
-                { id: 1, name: '初级场', min: 100, max: 1000, code: sceneName, onlineusers: 123, score: '1000', skin: '1', shuffle: true, level: '1', mincoins: 100, maxcoins: 1000 },
-                { id: 2, name: '中级场', min: 1000, max: 10000, code: sceneName, onlineusers: 45, score: '10000', skin: '1', shuffle: true, level: '1', mincoins: 1000, maxcoins: 10000 },
-                { id: 3, name: '高级场', min: 10000, max: 100000, code: sceneName, onlineusers: 12, score: '100000', skin: '1', shuffle: true, level: '2', mincoins: 10000, maxcoins: 100000 }
+        // 根据不同游戏返回对应的玩法数据
+        var playwaysData = {
+            'dizhu': [
+                { id: '402888815e21d735015e21d995680000', name: '初级场', min: 100, max: 1000, code: 'dizhu', onlineusers: 123, score: '1000', skin: '1', shuffle: true, level: '1', mincoins: 1000, maxcoins: 100000 },
+                { id: '402888815e671780015e6718ebce0000', name: '高级场', min: 10000, max: 100000, code: 'dizhu', onlineusers: 45, score: '50000', skin: '1', shuffle: true, level: '2', mincoins: 50000, maxcoins: 200000 }
+            ],
+            'majiang': [
+                { id: '402888815e6f0177015e71529f3a0001', name: '初级场', min: 100, max: 1000, code: 'majiang', onlineusers: 123, score: '2000', skin: '1', shuffle: false, level: '1', mincoins: 2000, maxcoins: 100000 },
+                { id: '402888815e6f0177015e7153aa0a0003', name: '高级场', min: 10000, max: 100000, code: 'majiang', onlineusers: 45, score: '5000', skin: '1', shuffle: false, level: '2', mincoins: 5000, maxcoins: 200000 }
+            ],
+            'dezhou': [
+                { id: '402888815e21d735015e21d995680000', name: '初级场', min: 100, max: 1000, code: 'dezhou', onlineusers: 123, score: '1000', skin: '1', shuffle: true, level: '1', mincoins: 1000, maxcoins: 100000 },
+                { id: '402888815e671780015e6718ebce0000', name: '高级场', min: 10000, max: 100000, code: 'dezhou', onlineusers: 45, score: '50000', skin: '1', shuffle: true, level: '2', mincoins: 50000, maxcoins: 200000 }
+            ],
+            'zhajinhua': [
+                { id: '402888815e21d735015e21d995680000', name: '初级场', min: 100, max: 1000, code: 'zhajinhua', onlineusers: 123, score: '1000', skin: '1', shuffle: true, level: '1', mincoins: 1000, maxcoins: 100000 },
+                { id: '402888815e671780015e6718ebce0000', name: '高级场', min: 10000, max: 100000, code: 'zhajinhua', onlineusers: 45, score: '50000', skin: '1', shuffle: true, level: '2', mincoins: 50000, maxcoins: 200000 }
+            ],
+            'bullfight': [
+                { id: '402888815e21d735015e21d995680000', name: '初级场', min: 100, max: 1000, code: 'bullfight', onlineusers: 123, score: '1000', skin: '1', shuffle: true, level: '1', mincoins: 1000, maxcoins: 100000 },
+                { id: '402888815e671780015e6718ebce0000', name: '高级场', min: 10000, max: 100000, code: 'bullfight', onlineusers: 45, score: '50000', skin: '1', shuffle: true, level: '2', mincoins: 50000, maxcoins: 200000 }
             ]
+        };
+        
+        // 真实的游戏玩法数据（从数据库获取）
+        var gametype = {
+            playways: playwaysData[sceneName] || playwaysData['dizhu']
         };
         if(gametype!=null){
             for(var inx =0 ; inx < gametype.playways.length ; inx++){
